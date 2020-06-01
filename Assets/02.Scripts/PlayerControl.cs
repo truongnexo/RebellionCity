@@ -23,7 +23,7 @@ public class PlayerControl : MonoBehaviour,IOnTornado
     {
         if (isActive)
         {
-            if (other.tag != tag)
+            if (other.tag != tag && other.tag != "Player")
             {
                 string tagName = other.tag;
                 if (tagName == "CITIZEN")
