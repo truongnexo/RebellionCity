@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Citizen : MonoBehaviour, IOnTornado
+public class Citizen : MonoBehaviour
 {
     NavMeshAgent nav;
     bool isOnTornado;

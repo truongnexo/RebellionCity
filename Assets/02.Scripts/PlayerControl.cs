@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PlayerControl : MonoBehaviour,IOnTornado
+public class PlayerControl : MonoBehaviour
 {
     protected Material mat;
     public NavMeshAgent nav;
