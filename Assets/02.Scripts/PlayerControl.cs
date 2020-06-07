@@ -152,12 +152,4 @@ public class PlayerControl : MonoBehaviour
         }
         //f.parent = gameObject;
     }
-
-    public void IOnTornado(Material mat, Vector3 tornadoPos)
-    {
-        GetComponent<MeshRenderer>().material = mat;
-        nav.enabled = false;
-        GetComponent<Rigidbody>().AddForce((tornadoPos - transform.position) * 50 + Vector3.up * 400);
-        Destroy(gameObject, 2f);
-    }
 }

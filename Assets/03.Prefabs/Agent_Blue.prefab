@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2706418673010645172}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -1177643214403681398, guid: 7acceec234119cc47931144731c50b15, type: 3}
 --- !u!23 &3254196444526384713
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -58,10 +58,11 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 93ab4856a645cd5438ee756f18bc1294, type: 2}
+  - {fileID: -2310514774154243031, guid: 7acceec234119cc47931144731c50b15, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -69,6 +70,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -129,6 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21b8052ea2cd29149bb396418c4d5763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nav: {fileID: 0}
+  isActive: 0
   parent: {fileID: 0}
   ps: {fileID: 936576681251078837, guid: 7908d66cb3866cb488dc2b35d2246f9a, type: 3}
 --- !u!54 &7401022541251428201
