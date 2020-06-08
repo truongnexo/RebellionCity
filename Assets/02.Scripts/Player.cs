@@ -1,11 +1,20 @@
 ﻿using UnityEngine;
-
+using System.Collections;
 public class Player : PlayerControl
 {
     public delegate void PlayerDeathDel();
     public static event PlayerDeathDel PlayerDeathEvent;
+    private bool canUpSpeed = true;
 
     float h, v;
+    void Update () 
+    {
+        if (Input.GetKey (KeyCode.R)) {
+            if (canUpSpeed) {
+                StartCoroutine(upSpeed());
+            }
+        }
+    }
     private void FixedUpdate()
     {
 #if UNITY_EDITOR
@@ -13,6 +22,7 @@ public class Player : PlayerControl
         v = Input.GetAxis("Vertical");
         Vector3 dir = new Vector3(h, 0, v);
         nav.velocity = dir.normalized * nav.speed;
+
 #elif UNITY_ANDROID
         if (Input.GetMouseButtonUp(0))
         {
@@ -32,4 +42,13 @@ public class Player : PlayerControl
     {
         PlayerDeathEvent?.Invoke();
     }
+
+    IEnumerator upSpeed() {
+        canUpSpeed = false;
+        nav.speed += 50;
+        yield return new WaitForSeconds(2f);
+        nav.speed -= 50;
+        canUpSpeed = true;
+    }
+        
 }
