@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UIElements;
+using System;
+
 public class Player : PlayerControl
 {
     public delegate void PlayerDeathDel();
@@ -7,12 +10,14 @@ public class Player : PlayerControl
     private bool canUpSpeed = true;
 
     float h, v;
-    void Update () 
+    void Update()
     {
-        if (Input.GetKey (KeyCode.R)) {
-            if (canUpSpeed) {
+        if (Input.GetKey(KeyCode.R) || Input.GetMouseButton(0))
+        {
+            if (canUpSpeed)
+            {
                 StartCoroutine(upSpeed());
-            }
+            } 
         }
     }
     private void FixedUpdate()
@@ -43,12 +48,18 @@ public class Player : PlayerControl
         PlayerDeathEvent?.Invoke();
     }
 
-    IEnumerator upSpeed() {
+    IEnumerator upSpeed()
+    {
         canUpSpeed = false;
-        nav.speed += 50;
-        yield return new WaitForSeconds(2f);
-        nav.speed -= 50;
+        var speedDefault = nav.speed;
+        nav.speed = 8;
+        yield return new WaitForSeconds(3f);
+        while (nav.speed > speedDefault)
+        {
+            nav.speed -= 1;
+        }
         canUpSpeed = true;
+
     }
-        
+
 }

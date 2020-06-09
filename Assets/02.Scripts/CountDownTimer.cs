@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CountDownTimer : MonoBehaviour
@@ -23,7 +24,8 @@ public class CountDownTimer : MonoBehaviour
         if (currentTime <= 0) {
         	currentTime = 0;
         	// Time.timeScale = 0f;
-        	overGame.SetActive(true);
+        	//overGame.SetActive(true);
+            SceneManager.LoadScene("EndGame");
         }
     }
 }
