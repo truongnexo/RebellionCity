@@ -8,6 +8,7 @@ public class PlayerControl : MonoBehaviour
     protected Material mat;
     public NavMeshAgent nav;
     public bool isActive;
+    public Animator anim;
     protected void Start()
     {
         StartCoroutine(OnStart());
@@ -114,6 +115,7 @@ public class PlayerControl : MonoBehaviour
     {   
         //Debug.Log("t enter from " + name);
         Follower f = other.GetComponent<Follower>();
+        NavMeshAgent n = other.gameObject.AddComponent<NavMeshAgent>();
         //other.transform.parent = transform;
         other.GetComponent<MeshRenderer>().material = mat;
         if (other.GetComponent<PlayerAI>())
@@ -139,14 +141,17 @@ public class PlayerControl : MonoBehaviour
             case "RED":
                 f.parent = GameObject.Find("Red");
                 other.transform.parent = f.parent.transform;
+                nav.speed = n.speed;
                 break;
             case "YELLOW":
                 f.parent = GameObject.Find("Yellow");
                 other.transform.parent = f.parent.transform;
+                nav.speed = n.speed;
                 break;
             case "BLUE":
                 f.parent = GameObject.Find("Player");
                 other.transform.parent = f.parent.transform;
+                nav.speed = n.speed;
                 Debug.Log("parenting P");
                 break;
         }

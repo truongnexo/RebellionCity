@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ab49711749bf08d47b8f394d93d785e1
+guid: 04469bf35c30659449cad64285541483
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
@@ -19,7 +19,12 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
+      copied configuration does not match position in animation file:\n\t'mixamorig_LeftUpLeg'
+      : position error = 4.595013 mm\n\t'mixamorig_LeftLeg' : position error = 8.492114
+      mm\n\t'mixamorig_LeftFoot' : position error = 26.684523 mm\n\t'mixamorig_RightUpLeg'
+      : position error = 4.476634 mm\n\t'mixamorig_RightLeg' : position error = 8.442788
+      mm\n\t'mixamorig_RightFoot' : position error = 26.664248 mm\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -39,7 +44,7 @@ ModelImporter:
       takeName: CINEMA_4D_Main
       internalID: 0
       firstFrame: 0
-      lastFrame: 58
+      lastFrame: 19
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -524,11 +529,12 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: ab49711749bf08d47b8f394d93d785e1,
+    type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 2
   additionalBone: 0
   userData: 
   assetBundleName: 

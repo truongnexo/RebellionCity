@@ -16,13 +16,15 @@ public class PlayerAI : PlayerControl
         if (target == null)
         {
             target = GameObject.FindWithTag(citizenTag);
+            
         }
         else
         {
             if(target.tag!=citizenTag)
                 target = GameObject.FindWithTag(citizenTag);
             nav.SetDestination(target.transform.position);
-            //transform.position = Vector3.MoveTowards(transform.position, target.transform.position, nav.speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, nav.speed * Time.deltaTime);
+            anim.SetInteger("condition", 1);
         }
     }
     private void OnDisable()
