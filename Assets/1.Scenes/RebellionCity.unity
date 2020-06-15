@@ -6726,8 +6726,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8f605ccad6bd6547b6773aee047e1b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nav: {fileID: 0}
-  isActive: 0
+  nav: {fileID: 1214484181}
+  isActive: 1
   anim: {fileID: 1214484179}
 --- !u!54 &1214484183
 Rigidbody:
