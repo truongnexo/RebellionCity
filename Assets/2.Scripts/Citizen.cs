@@ -18,6 +18,7 @@ public class Citizen : MonoBehaviour
     { 
         if (nav.isOnNavMesh)
             nav.SetDestination(new Vector3(Random.Range(-50, 50), 2.5f, Random.Range(-50, 50)));
+        nav.speed = 4;
         yield return new WaitForSeconds(3f); 
     }
 

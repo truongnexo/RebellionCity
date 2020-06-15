@@ -28,7 +28,7 @@ public class Player : PlayerControl
     }
     private void FixedUpdate()
     {
-#if UNITY_EDITOR
+
         h = Input.GetAxis("Horizontal");
         v = Input.GetAxis("Vertical");
         if (h == 0 && v == 0)
@@ -42,20 +42,6 @@ public class Player : PlayerControl
         Vector3 dir = new Vector3(h, 0, v);
         nav.velocity = dir.normalized * nav.speed;
 
-#elif UNITY_ANDROID
-        if (Input.GetMouseButtonUp(0))
-        {
-            h = 0;
-            v = 0;
-        }
-        if (h == 0 && v == 0)
-        {
-            h = Input.GetTouch(0).deltaPosition.x;
-            v = Input.GetTouch(0).deltaPosition.y;
-        }
-        Vector3 _dir = new Vector3(h, 0, v);
-        nav.velocity = _dir.normalized * nav.speed;
-#endif
     }
     private void OnDisable()
     {
@@ -66,7 +52,7 @@ public class Player : PlayerControl
     {
         canUpSpeed = false;
         var speedDefault = nav.speed;
-        nav.speed = 8;
+        nav.speed = 7;
         yield return new WaitForSeconds(3f);
         while (nav.speed > speedDefault)
         {
