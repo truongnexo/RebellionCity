@@ -15,11 +15,16 @@ public class Citizen : MonoBehaviour
         StartCoroutine(MoveCitizen());
     }
     IEnumerator MoveCitizen()
-    { 
-        if (nav.isOnNavMesh)
-            nav.SetDestination(new Vector3(Random.Range(-50, 50), 2.5f, Random.Range(-50, 50)));
-        nav.speed = 4;
-        yield return new WaitForSeconds(3f); 
+    {
+
+        while (true)
+        {
+
+            if (nav.isOnNavMesh)
+                nav.SetDestination(new Vector3(Random.Range(-50, 50), 1, Random.Range(-50, 50)));
+            nav.speed = 4;
+            yield return new WaitForSeconds(3f); 
+        }
     }
 
 
@@ -27,7 +32,7 @@ public class Citizen : MonoBehaviour
     {
         if (other.tag == obstacleTag)
         {
-            transform.position = new Vector3(Random.Range(-70, 70), 0, Random.Range(-70, 70));
+            transform.position = new Vector3(Random.Range(-50, 50), 1, Random.Range(-50, 50));
         }
     }
 }
