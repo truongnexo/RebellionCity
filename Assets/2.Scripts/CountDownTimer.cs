@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class CountDownTimer : MonoBehaviour
 {
-	float currentTime = 0f;
+	public static float currentTime = 0f;
+    float timeLoadScene = 0;
 	public float startTime = 4f;
 	public Text countDownText;
 	public GameObject overGame;
@@ -14,18 +15,26 @@ public class CountDownTimer : MonoBehaviour
     void Start()
     {
         currentTime = startTime;
+        timeLoadScene = currentTime + 5;
     }
 
     // Update is called once per frame
     void Update()
     {
         currentTime -= 1 * Time.deltaTime;
+        timeLoadScene -= 1 * Time.deltaTime;
         countDownText.text = currentTime.ToString("0");
         if (currentTime <= 0) {
         	currentTime = 0;
         	// Time.timeScale = 0f;
         	//overGame.SetActive(true);
-            SceneManager.LoadScene("EndGame");
+
+
         }
+        //if (timeLoadScene <= 0)
+        //{
+        //    timeLoadScene = 0;
+        //    SceneManager.LoadScene("EndGame");
+        //}
     }
 }

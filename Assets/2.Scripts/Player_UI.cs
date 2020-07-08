@@ -149,6 +149,7 @@ public class Player_UI : MonoBehaviour
     }
     void Start()
     {
+        Time.timeScale = 1f;
         entryTemplate.gameObject.SetActive(false);
         playerNumTxt.text = playerCnt.ToString();
         redNumTxt.text = redCnt.ToString();
@@ -162,20 +163,21 @@ public class Player_UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timeLimit - Time.timeSinceLevelLoad > 0)
-            timeTxt.text = (timeLimit - Time.timeSinceLevelLoad).ToString("0.#");
-        if (Time.timeSinceLevelLoad > timeLimit)
+        //if (timeLimit - Time.timeSinceLevelLoad > 0)
+        //    timeTxt.text = (timeLimit - Time.timeSinceLevelLoad).ToString("0.#");
+        //if (Time.timeSinceLevelLoad > timeLimit)
+        //{
+            
+        if (CountDownTimer.currentTime == 0)
         {
-            if(!isOver)
-            {
-                isOver = true;
-                Debug.Log("is over");
-                OnGameOver();
-            }
-            timePassed += Time.deltaTime;
-            gameoverPanel.transform.position =
-            Vector3.Lerp(gameoverPanel.transform.position - Vector3.up * 100, endPos, overPanelCurve.Evaluate(timePassed));
+            isOver = true;
+            Debug.Log("is over");
+            OnGameOver();
         }
+        timePassed += Time.deltaTime;
+        gameoverPanel.transform.position =
+        Vector3.Lerp(gameoverPanel.transform.position - Vector3.up * 100, endPos, overPanelCurve.Evaluate(timePassed));
+        //}
         DirectionUI();
     }
     void DirectionUI()
@@ -204,10 +206,10 @@ public class Player_UI : MonoBehaviour
         switch (name)
         {
             case "Red":
-                redImg.gameObject.SetActive(false);
+                if (redImg != null) redImg.gameObject.SetActive(false);
                 break;
             case "Yellow":
-                yellowImg.gameObject.SetActive(false);
+                if (yellowImg != null) yellowImg.gameObject.SetActive(false);
                 break;
             case "Player":
                 playerImg.gameObject.SetActive(false);
@@ -216,15 +218,23 @@ public class Player_UI : MonoBehaviour
                 break;
         }
     }
-    void OnGameOver()
+     void OnGameOver()
     {
         gameOver.gameObject.SetActive(true);
         GetRank();
-        //Time.timeScale = 0.2f;
+        Time.timeScale = 0f;
+        //SceneManager.LoadScene("EndGame");
+        //StartCoroutine(loadSceneGameOver());
         //if (red.GetComponent<PlayerAI>() != null)
         //    red.GetComponent<PlayerAI>().enabled = false;
         //if (yellow.GetComponent<PlayerAI>() != null)
         //    yellow.GetComponent<PlayerAI>().enabled = false;
+    }
+    IEnumerator loadSceneGameOver ()
+    {
+        Debug.Log("gameover");
+        yield return new WaitForSeconds(5);
+
     }
     void GetRank()
     {
@@ -259,7 +269,7 @@ public class Player_UI : MonoBehaviour
     }
     public void Restart()
     {
-        //Time.timeScale = 1;
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     private void OnDisable()
