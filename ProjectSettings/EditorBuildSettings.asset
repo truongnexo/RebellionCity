@@ -5,7 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/01.Scenes/CrowdCity.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/1.Scenes/Menu.unity
+    guid: ee1ff9806d67e5947b65a6ef76e11d0b
+  - enabled: 1
+    path: Assets/1.Scenes/RebellionCity.unity
+    guid: 28fd5ab7870b0514e8d633f5a9213d69
+  - enabled: 1
+    path: Assets/1.Scenes/Guide.unity
+    guid: 2eb20b6a500580540ad021dbb4a8aee7
+  - enabled: 1
+    path: Assets/1.Scenes/Store.unity
+    guid: d6d864b2082eb314aaea76a0d7fd88e8
+  - enabled: 1
+    path: Assets/1.Scenes/EndGame.unity
+    guid: e5a7575ef178fb8458934c5d2f83dc20
   m_configObjects: {}
