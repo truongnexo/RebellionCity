@@ -272,6 +272,12 @@ public class Player_UI : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void Menu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Menu");
+    }
     private void OnDisable()
     {
         Follower.CountingEvent -= AddCount;
